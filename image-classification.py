@@ -49,16 +49,16 @@ test_set = train_datagen.flow_from_directory(
 from IPython.display import display
 from PIL import Image
 
-classifier.fir_generator(
+classifier.fit_generator(
     training_set,
     steps_per_epoch = 8000,
-    epochs = 10,
-    validation_dataset = test_set,
+    epochs = 5,
+    validation_data = test_set,
     validation_steps = 800)
 
 import numpy as np
 from keras.preprocessing import image
-test_image = image.load('random.jpg', target_size = (64,64))
+test_image = image.load('/C:/Users/dps17/Desktop/kartikey/sampleData.jpg', target_size = (64,64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 result = classifier.predict(test_image)
